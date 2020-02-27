@@ -1,0 +1,87 @@
+.dropdown-button {
+  display: inline-block;
+  margin: 0 3px;
+  position: relative;
+
+  // Remove the button margin and add it to .dropdown-button
+  .button {
+    margin: 0;
+  }
+
+  &__list {
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    margin: 4px 0 0 0;
+    border-radius: 4px;
+    border: white;
+    min-width: 240px;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 8px 6px;
+      border-bottom: grey;
+
+      &:first-of-type {
+        border-radius: 4px 4px 0 0;
+      }
+
+      &:last-of-type {
+        border-bottom: none;
+        border-radius: 0 0 4px 4px;
+      }
+
+      &__arrow {
+        margin-left: auto;
+        transition: transform 0.225s ease-out;
+
+        &--open {
+          transform: rotate(90deg);
+        }
+      }
+
+      &:hover {
+        background-color: darkBlue;
+        color: lightblue;
+      }
+    }
+
+    &__sub-menu {
+      visibility: hidden;
+      overflow: hidden;
+      color: $white70;
+      background-color: darkBlue;
+      border-bottom: none;
+      padding: 0;
+      margin: 0;
+      max-height: 0px;
+      transition: max-height 0.225s ease-out, visibility 0s linear 0.225s;
+
+      &:last-of-type {
+        border-radius: 0 0 4px 4px;
+      }
+
+      &--open {
+        visibility: visible;
+        height: auto;
+        border-bottom: grey;
+        max-height: 200px;
+        transition: max-height 0.225s ease-out, visibility 0s linear;
+      }
+
+      &__item {
+        padding: 8px 6px;
+
+        &:hover {
+          background: darkblue;
+          color: lightblue;
+        }
+      }
+    }
+  }
+}
